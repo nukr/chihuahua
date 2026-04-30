@@ -51,10 +51,3 @@ async fn main() {
         .unwrap();
     // let _ = axum::serve(listener, app).await;
 }
-
-#[derive(Deserialize)]
-struct Input {
-    name: String,
-    phone_number: String,
-}
-async fn accept_form(Form(Input): Form<Input>) -> Html<String> {}
