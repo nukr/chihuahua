@@ -136,7 +136,7 @@ function Hero({personCount}:{ personCount: string}) {
               <div className='absolute inset-0 -translate-x-full bg-linear-to-r from-transparent via-white/20 to-transparent transition-transform duration-500 group-hover:translate-x-full' />
             </Link>
             <a
-              href='tel:+88621234566'
+              href='tel:+886228103665'
               className='flex items-center justify-center gap-3 rounded-xl border border-zinc-700 bg-zinc-800/50 px-8 py-4 text-center font-bold text-white backdrop-blur-sm transition-colors hover:bg-zinc-800'
             >
               <svg
@@ -146,7 +146,7 @@ function Hero({personCount}:{ personCount: string}) {
               >
                 <path d='M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z' />
               </svg>
-              02-
+              02-28103665
             </a>
           </div>
 
