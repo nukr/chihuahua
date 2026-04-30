@@ -9,12 +9,14 @@
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=AW-18084191325"
-    />
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
+
+      window.gtag = function () {
+        window.dataLayer.push(arguments);
+      };
+
       gtag('js', new Date());
 
       gtag('config', 'AW-18084191325');
