@@ -18,10 +18,19 @@ function Form() {
 
     gtag_report_conversion('/');
 
-    // Mock API call
     try {
-      console.log('Submitting form data:', formData);
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      const res = await fetch('/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!res.ok) {
+        throw new Error('Request failed');
+      }
+
       alert('表單已送出，專員將盡快與您聯絡！');
       navigate('/');
     } catch (error) {
@@ -47,8 +56,13 @@ function Form() {
         window.location.href = url;
       }
     };
-    // @ts-expect-error
-    gtag('event', 'conversion', {
+
+    if (typeof window.gtag !== 'function') {
+      console.warn('gtag not loaded');
+      return;
+    }
+
+    window.gtag('event', 'conversion', {
       send_to: 'AW-18084191325/W_DKCNeUzKQcEN24m69D',
       value: 1.0,
       currency: 'TWD',
@@ -210,5 +224,3 @@ function Form() {
 }
 
 export default Form;
-
-
