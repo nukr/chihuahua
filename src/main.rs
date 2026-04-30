@@ -1,8 +1,9 @@
 use std::{net::SocketAddr, path::PathBuf};
 
-use axum::{Router, routing::get};
+use axum::{Form, Router, response::Html, routing::get};
 use axum_server::tls_rustls::RustlsConfig;
 use clap::Parser;
+use serde::Deserialize;
 use tower::ServiceExt;
 use tower_http::services::ServeDir;
 
@@ -51,4 +52,9 @@ async fn main() {
     // let _ = axum::serve(listener, app).await;
 }
 
-async fn statistics() {}
+#[derive(Deserialize)]
+struct Input {
+    name: String,
+    phone_number: String,
+}
+async fn accept_form(Form(Input): Form<Input>) -> Html<String> {}
