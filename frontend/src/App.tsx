@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router'
 import Header from './sections/Header/Header'
 import Hero from './sections/Hero/Hero'
 import About from './sections/About/About'
@@ -10,11 +12,21 @@ import Points from './sections/Points/Points'
 import Faq from './sections/Faq/Faq'
 import Contact from './sections/Contact/Contact'
 import Footer from './sections/Footer/Footer'
+import Form from './sections/Form/Form'
 
-function App() {
+function ScrollToTop() {
+  const { pathname } = useLocation()
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname])
+
+  return null
+}
+
+function HomePage() {
   return (
     <>
-      <Header />
       <main id="top">
         <Hero />
         <About />
@@ -27,8 +39,21 @@ function App() {
         <Faq />
         <Contact />
       </main>
-      <Footer />
     </>
+  )
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <ScrollToTop />
+      <Header />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/consult" element={<Form />} />
+      </Routes>
+      <Footer />
+    </BrowserRouter>
   )
 }
 

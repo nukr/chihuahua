@@ -1,6 +1,6 @@
-import AboutImage from '../../assets/about.jpg';
 import type { MouseEvent } from 'react';
-
+import { Link } from 'react-router';
+import AboutImage from '../../assets/about.jpg';
 
 
 const info = [
@@ -46,14 +46,17 @@ function About() {
                 alt='專業顧問團隊'
                 className='h-full w-full m-auto object-cover transition-transform duration-500 hover:scale-105'
               />
-              <button
-                onClick={handleApplyClick}
-                className='absolute inset-0 flex items-end justify-center pb-8 transition-opacity hover:bg-black/20 rounded-2xl text-xl cursor-pointer'
-              >
-                <span className='rounded-full bg-linear-to-r from-emerald-600 to-emerald-500 px-8 py-3 font-semibold text-white shadow-lg transition hover:-translate-y-0.5'>
+
+                   <Link
+              to='/consult'
+              className='absolute inset-0 flex items-end justify-center pb-8 transition-opacity hover:bg-black/20 rounded-2xl text-xl cursor-pointer'
+            >
+ <span className='rounded-full bg-linear-to-r from-emerald-600 to-emerald-500 px-8 py-3 font-semibold text-white shadow-lg transition hover:-translate-y-0.5'>
                   ⚡️ 馬上申請
                 </span>
-              </button>
+            </Link>
+
+       
             </div>
           </div>
 

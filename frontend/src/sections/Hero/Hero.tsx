@@ -1,5 +1,6 @@
+import { Link } from 'react-router';
 import Banner from '../../assets/banner.png';
-import {diffInHours, count, formatNumber} from '../../utils';
+import { diffInHours, count, formatNumber } from '../../utils';
 
 function Hero() {
   return (
@@ -126,14 +127,13 @@ function Hero() {
 
           {/* CTAs */}
           <div className='flex flex-col gap-4 sm:flex-row sm:items-center'>
-            <a
-              href='#contact'
+            <Link
+              to='/consult'
               className='group relative flex items-center justify-center overflow-hidden rounded-xl bg-emerald-500 px-8 py-4 text-center font-bold text-white shadow-lg shadow-emerald-500/20 transition-all hover:scale-105 hover:bg-emerald-400 active:scale-95'
             >
               🔥 立即免費評估額度
               <div className='absolute inset-0 -translate-x-full bg-linear-to-r from-transparent via-white/20 to-transparent transition-transform duration-500 group-hover:translate-x-full' />
-            </a>
-
+            </Link>
             <a
               href='tel:+88621234566'
               className='flex items-center justify-center gap-3 rounded-xl border border-zinc-700 bg-zinc-800/50 px-8 py-4 text-center font-bold text-white backdrop-blur-sm transition-colors hover:bg-zinc-800'
@@ -145,7 +145,7 @@ function Hero() {
               >
                 <path d='M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z' />
               </svg>
-              02-1234-566
+              02-
             </a>
           </div>
 
@@ -164,7 +164,9 @@ function Hero() {
               ))}
             </div>
             <p className='text-sm font-medium text-zinc-400'>
-              <span className='font-bold text-zinc-100'>{formatNumber((diffInHours * count).toFixed(0))}+</span>{' '}
+              <span className='font-bold text-zinc-100'>
+                {formatNumber((diffInHours * count).toFixed(0))}+
+              </span>{' '}
               成功申貸案例
             </p>
             <a
