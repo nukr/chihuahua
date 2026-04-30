@@ -165,7 +165,7 @@ function Hero() {
             </div>
             <p className='text-sm font-medium text-zinc-400'>
               <span className='font-bold text-zinc-100'>
-                {formatNumber((diffInHours * count).toFixed(0))}+
+                {formatNumber(Number((diffInHours * count).toFixed(0)))}+
               </span>{' '}
               成功申貸案例
             </p>

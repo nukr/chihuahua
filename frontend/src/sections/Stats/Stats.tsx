@@ -35,7 +35,7 @@ function Stats() {
                 </svg>
               </div>
               <div className="flex items-baseline gap-1">
-                <span className="text-5xl font-black text-white">{formatNumber((diffInHours * count).toFixed(0))}</span>
+                <span className="text-5xl font-black text-white">{formatNumber(Number((diffInHours * count).toFixed(0)))}</span>
                 <span className="text-lg font-bold text-emerald-300/60">+</span>
               </div>
               <p className="mt-3 text-sm font-medium text-emerald-100/60">已服務超過 3,000 位客戶</p>
@@ -66,7 +66,7 @@ function Stats() {
                 </svg>
               </div>
               <div className="flex items-baseline gap-1">
-                <span className="text-5xl font-black text-white">{formatNumber((diffInHours * baseAmount).toFixed(0))}</span>
+                <span className="text-5xl font-black text-white">{formatNumber(Number((diffInHours * baseAmount).toFixed(0)))}</span>
                 <span className="text-lg font-bold text-emerald-300/60">M+</span>
               </div>
               <p className="mt-3 text-sm font-medium text-emerald-100/60">累積撥款金額破億</p>

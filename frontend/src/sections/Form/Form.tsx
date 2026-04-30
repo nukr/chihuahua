@@ -38,18 +38,16 @@ function Form() {
     >,
   ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev: any) => ({ ...prev, [name]: value }));
   };
 
-  function gtag_report_conversion(url) {
-
-    console.log('------')
-
+  function gtag_report_conversion(url: string) {
     var callback = function () {
       if (typeof url != 'undefined') {
-        window.location = url;
+        window.location.href = url;
       }
     };
+    // @ts-expect-error
     gtag('event', 'conversion', {
       send_to: 'AW-18084191325/W_DKCNeUzKQcEN24m69D',
       value: 1.0,
@@ -212,3 +210,5 @@ function Form() {
 }
 
 export default Form;
+
+
