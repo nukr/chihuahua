@@ -42,7 +42,7 @@ async fn main() {
         )
         .nest_service("/assets", assets.clone());
 
-    let addr = SocketAddr::from(([127, 0, 0, 1], args.port));
+    let addr = SocketAddr::from(([0, 0, 0, 0], args.port));
     // run our app with hyper, listening globally on port 3000
     // let listener = tokio::net::TcpListener::bind(addr).await.unwrap();
     axum_server::bind_rustls(addr, config)
