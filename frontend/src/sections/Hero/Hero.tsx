@@ -1,8 +1,9 @@
 import { Link } from 'react-router';
 import Banner from '../../assets/banner.png';
-import { diffInHours, count, formatNumber } from '../../utils';
+import { formatNumber } from '../../utils';
 
-function Hero() {
+function Hero({personCount}:{ personCount: string}) {
+
   return (
     <section className='relative flex min-h-[75vh] items-center py-20 overflow-hidden md:min-h-[85vh]'>
       {/* Background with overlay */}
@@ -165,7 +166,7 @@ function Hero() {
             </div>
             <p className='text-sm font-medium text-zinc-400'>
               <span className='font-bold text-zinc-100'>
-                {formatNumber(Number((diffInHours * count).toFixed(0)))}+
+                {formatNumber(Number(personCount))}+
               </span>{' '}
               成功申貸案例
             </p>

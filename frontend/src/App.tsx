@@ -13,6 +13,8 @@ import Faq from './sections/Faq/Faq'
 import Contact from './sections/Contact/Contact'
 import Footer from './sections/Footer/Footer'
 import Form from './sections/Form/Form'
+import { getDisplayCount } from './utils';
+
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -25,14 +27,16 @@ function ScrollToTop() {
 }
 
 function HomePage() {
+  const personCount = getDisplayCount();
+
   return (
     <>
       <main id="top">
-        <Hero />
+        <Hero personCount={personCount} />
         <About />
         <Process />
         <Services />
-        <Stats />
+        <Stats  personCount={personCount}  />
         <Steps />
         <Cases />
         <Points />
