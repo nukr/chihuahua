@@ -1,7 +1,9 @@
-import { formatNumber, baseAmount, diffInHours} from '../../utils';
+import {  diffInHours, getDecreasingCount} from '../../utils';
 
-function Stats({personCount}:{ personCount: string}) {
-
+function Stats({ personCount }: { personCount: string }) {
+  const remainingCount = getDecreasingCount();
+  const remainingAmount = Math.round(diffInHours);
+  
   return (
     <section className="bg-emerald-950 py-24 px-6 lg:px-12 relative overflow-hidden">
       {/* Decorative background elements */}
@@ -19,7 +21,7 @@ function Stats({personCount}:{ personCount: string}) {
                 <span className="text-xs font-bold tracking-wider text-orange-300 uppercase leading-10">今日剩餘名額</span>
               </div>
               <div className="flex items-baseline gap-1">
-                <span className="text-5xl font-black text-white">12</span>
+                <span className="text-5xl font-black text-white">{remainingCount}</span>
                 <span className="text-lg font-bold text-emerald-300/60">位</span>
               </div>
               <p className="mt-3 text-sm font-medium text-emerald-100/60">僅剩名額，額滿即止</p>
@@ -35,7 +37,7 @@ function Stats({personCount}:{ personCount: string}) {
                 </svg>
               </div>
               <div className="flex items-baseline gap-1">
-                <span className="text-5xl font-black text-white">{formatNumber(Number(personCount))}</span>
+                <span className="text-5xl font-black text-white">{personCount}</span>
                 <span className="text-lg font-bold text-emerald-300/60">+</span>
               </div>
               <p className="mt-3 text-sm font-medium text-emerald-100/60">已服務超過 3,000 位客戶</p>
@@ -66,7 +68,7 @@ function Stats({personCount}:{ personCount: string}) {
                 </svg>
               </div>
               <div className="flex items-baseline gap-1">
-                <span className="text-5xl font-black text-white">{formatNumber(Number((diffInHours * baseAmount).toFixed(0)))}</span>
+                <span className="text-5xl font-black text-white">{remainingAmount}</span>
                 <span className="text-lg font-bold text-emerald-300/60">M+</span>
               </div>
               <p className="mt-3 text-sm font-medium text-emerald-100/60">累積撥款金額破億</p>

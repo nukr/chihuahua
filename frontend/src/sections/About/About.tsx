@@ -110,7 +110,7 @@ function About() {
               <div className='hidden h-10 w-px shrink-0 bg-zinc-200 md:block' />
               <div className='flex flex-col'>
                 <span className='text-2xl font-black text-zinc-900 md:text-3xl'>
-                  100 萬
+                  500 萬
                 </span>
                 <span className='text-xs font-bold text-zinc-400 uppercase tracking-wide'>
                   最高可貸

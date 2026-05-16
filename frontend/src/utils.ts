@@ -8,6 +8,7 @@ const now = Date.now();
 const diffInHours = (now - pastDate.getTime()) / (1000 * 60 * 60);
 
 
+
 // M+ 顯示
 const formatMPlus = (num: number) => {
   if (num >= 1e9) return Math.floor(num / 1e9) + 'B+'
@@ -16,38 +17,20 @@ const formatMPlus = (num: number) => {
 }
 
 // 核心：人數成長模型
-const getCount = (date: Date) => {
-  const now = Date.now()
-
-  // 時間差（小時）
-  const diffInHours =
-    (now - date.getTime()) / (1000 * 60 * 60)
-
-  const base = 1;
+const getCount = () => {
+  const base = 3;
 
   // 成長曲線（log：前快後慢，比線性真實）
-  const growth = Math.log1p(diffInHours) * 1000
+  const growth = Math.log1p(diffInHours) * 550
 
-  // 一點隨機抖動（避免太假）
-  const jitter = Math.random() * 30
-
-  return Math.floor(base + growth + jitter)
+  return Math.floor(base + growth)
 }
 
 // 對外 function（最終你會用這個）
 const getDisplayCount = () => {
-  const count = getCount(pastDate)
+  const count = getCount()
   return formatMPlus(count)
 }
-
-
-// 4. 輸出結果
-// console.log(`已經經過了 ${Math.floor(diffInHours)} 小時`);
-// 如果需要顯示小數點，直接用 diffInHours
-
-const count = 150;
-
-const baseAmount = 30;
 
 const formatNumber = (num: number, options = {}) => {
   const formatter = new Intl.NumberFormat('en-US', {
@@ -64,8 +47,6 @@ const formatCompactNumber = (num: number | string) => {
   const abs = Math.abs(Number(num))
   let unit;
   let amount;
-
-  console.log('abs', abs)
 
   if (abs >= 1e9) {
     amount = Math.floor(Number(num) / 1e9);
@@ -88,4 +69,14 @@ const formatCompactNumber = (num: number | string) => {
   }
 }
 
-export { diffInHours, count, baseAmount, getDisplayCount, formatNumber, formatCompactNumber  };
+const getDecreasingCount = () => {
+  const now = new Date();
+  const startOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const hoursPassed = (now.getTime() - startOfDay.getTime()) / (1000 * 60 * 60);
+
+  // 從 30 開始，每小時約遞減 1 人，最低保持在 2 人 (可根據需求調整)
+  const count = Math.max(2, 30 - Math.floor(hoursPassed));
+  return count;
+};
+
+export { diffInHours, getDisplayCount, formatNumber, formatCompactNumber, getDecreasingCount };

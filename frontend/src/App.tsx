@@ -13,7 +13,7 @@ import Faq from './sections/Faq/Faq'
 import Contact from './sections/Contact/Contact'
 import Footer from './sections/Footer/Footer'
 import Form from './sections/Form/Form'
-import { getDisplayCount } from './utils';
+import { getDisplayCount, formatNumber } from './utils';
 
 
 function ScrollToTop() {
@@ -28,15 +28,16 @@ function ScrollToTop() {
 
 function HomePage() {
   const personCount = getDisplayCount();
+  const formattedPersonCount = formatNumber(Number(personCount))
 
   return (
     <>
       <main id="top">
-        <Hero personCount={personCount} />
+        <Hero personCount={formattedPersonCount} />
         <About />
         <Process />
         <Services />
-        <Stats  personCount={personCount}  />
+        <Stats personCount={formattedPersonCount}  />
         <Steps />
         <Cases />
         <Points />

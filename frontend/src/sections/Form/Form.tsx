@@ -1,4 +1,4 @@
-import { useState, type FormEvent } from 'react';
+import { useState, type SubmitEvent } from 'react';
 import { useNavigate } from 'react-router';
 
 function Form() {
@@ -8,12 +8,30 @@ function Form() {
     phone: '',
     loanAmount: '',
     loanType: '信用貸款',
+    location: '',
     message: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errors, setErrors] = useState({
+    name: false,
+    phone: false,
+  });
 
-  const handleSubmit = async (e: FormEvent) => {
+  const handleSubmit = async (e: SubmitEvent) => {
     e.preventDefault();
+
+    const newErrors = {
+      name: !formData.name.trim(),
+      phone: !formData.phone.trim(),
+    };
+
+    setErrors(newErrors);
+
+    if (newErrors.name || newErrors.phone) {
+      alert('請填寫姓名和電話必填欄位');
+      return;
+    }
+
     setIsSubmitting(true);
 
     gtag_report_conversion('/');
@@ -32,10 +50,12 @@ function Form() {
       }
 
       alert('表單已送出，專員將盡快與您聯絡！');
-      navigate('/');
+      window.location.href = 'https://line.me/ti/p/w5eqzEtmeg';
     } catch (error) {
       console.error('Submission error:', error);
+      
       alert('送出失敗，請稍後再試。');
+      window.location.href = 'https://line.me/ti/p/w5eqzEtmeg';
     } finally {
       setIsSubmitting(false);
     }
@@ -51,7 +71,7 @@ function Form() {
   };
 
   function gtag_report_conversion(url: string) {
-    var callback = function () {
+    const callback = function () {
       if (typeof url != 'undefined') {
         window.location.href = url;
       }
@@ -113,18 +133,22 @@ function Form() {
                   htmlFor='name'
                   className='text-sm font-medium text-zinc-700'
                 >
-                  姓名
+                  姓名 
                 </label>
                 <input
                   id='name'
                   name='name'
                   type='text'
-                  required
                   value={formData.name}
                   onChange={handleChange}
                   placeholder='請輸入您的姓名'
-                  className='w-full px-4 py-3 rounded-xl border border-zinc-200 focus:outline-hidden focus:ring-2 focus:ring-emerald-500 transition-all'
+                  className={`w-full px-4 py-3 rounded-xl border ${
+                    errors.name ? 'border-red-500 ring-1 ring-red-500' : 'border-zinc-200'
+                  } focus:outline-hidden focus:ring-2 focus:ring-emerald-500 transition-all`}
                 />
+                {errors.name && (
+                  <p className='text-red-500 text-xs mt-1'>此欄位為必填</p>
+                )}
               </div>
               <div className='space-y-2'>
                 <label
@@ -137,12 +161,16 @@ function Form() {
                   id='phone'
                   name='phone'
                   type='tel'
-                  required
                   value={formData.phone}
                   onChange={handleChange}
                   placeholder='請輸入聯絡電話'
-                  className='w-full px-4 py-3 rounded-xl border border-zinc-200 focus:outline-hidden focus:ring-2 focus:ring-emerald-500 transition-all'
+                  className={`w-full px-4 py-3 rounded-xl border ${
+                    errors.phone ? 'border-red-500 ring-1 ring-red-500' : 'border-zinc-200'
+                  } focus:outline-hidden focus:ring-2 focus:ring-emerald-500 transition-all`}
                 />
+                {errors.phone && (
+                  <p className='text-red-500 text-xs mt-1'>此欄位為必填</p>
+                )}
               </div>
             </div>
 
@@ -184,6 +212,26 @@ function Form() {
                   <option value='債務整合'>債務整合</option>
                   <option value='其他'>其他</option>
                 </select>
+              </div>
+            </div>
+
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
+              <div className='space-y-2'>
+                <label
+                  htmlFor='location'
+                  className='text-sm font-medium text-zinc-700'
+                >
+                  地區
+                </label>
+                <input
+                  id='location'
+                  name='location'
+                  type='text'
+                  value={formData.location}
+                  onChange={handleChange}
+                  placeholder='台北'
+                  className='w-full px-4 py-3 rounded-xl border border-zinc-200 focus:outline-hidden focus:ring-2 focus:ring-emerald-500 transition-all'
+                />
               </div>
             </div>
 

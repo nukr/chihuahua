@@ -1,6 +1,5 @@
 import { Link } from 'react-router';
 import Banner from '../../assets/banner.png';
-import { formatNumber } from '../../utils';
 
 function Hero({personCount}:{ personCount: string}) {
 
@@ -166,7 +165,7 @@ function Hero({personCount}:{ personCount: string}) {
             </div>
             <p className='text-sm font-medium text-zinc-400'>
               <span className='font-bold text-zinc-100'>
-                {formatNumber(Number(personCount))}+
+                {personCount}+
               </span>{' '}
               成功申貸案例
             </p>
