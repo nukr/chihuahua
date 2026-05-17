@@ -1,9 +1,8 @@
 use std::{net::SocketAddr, path::PathBuf};
 
-use axum::{Form, Router, response::Html, routing::get};
+use axum::{Router, routing::get};
 use axum_server::tls_rustls::RustlsConfig;
 use clap::Parser;
-use serde::Deserialize;
 use tower::ServiceExt;
 use tower_http::services::ServeDir;
 
