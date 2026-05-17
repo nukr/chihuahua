@@ -1,5 +1,6 @@
 use std::{net::SocketAddr, path::PathBuf};
 
+use anyhow::Result;
 use axum::{Router, routing::get};
 use axum_server::tls_rustls::RustlsConfig;
 use clap::Parser;
@@ -14,7 +15,7 @@ struct Args {
 }
 
 #[tokio::main]
-async fn main() {
+async fn main() -> Result<()> {
     tracing_subscriber::fmt::init();
     let args = Args::parse();
     let assets = ServeDir::new("loan-html/assets");
@@ -27,8 +28,7 @@ async fn main() {
             .join("self_signed_certs")
             .join("key.pem"),
     )
-    .await
-    .unwrap();
+    .await?;
     let app = Router::new()
         // `GET /` goes to `root`
         .route(
@@ -42,11 +42,8 @@ async fn main() {
         .nest_service("/assets", assets.clone());
 
     let addr = SocketAddr::from(([0, 0, 0, 0], args.port));
-    // run our app with hyper, listening globally on port 3000
-    // let listener = tokio::net::TcpListener::bind(addr).await.unwrap();
     axum_server::bind_rustls(addr, config)
         .serve(app.into_make_service())
-        .await
-        .unwrap();
-    // let _ = axum::serve(listener, app).await;
+        .await?;
+    return Ok(());
 }
