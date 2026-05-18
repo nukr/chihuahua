@@ -48,7 +48,7 @@ function Header() {
             }
           }}
         >
-          鑫信金融
+          鑫信國際管理顧問有限公司
         </Link>
         <nav className="hidden items-center gap-5 text-sm text-zinc-700 md:flex" aria-label="主選單">
           <a href="#about" className="hover:text-emerald-700" onClick={(event) => handleMenuClick(event, '#about')}>關於</a>
