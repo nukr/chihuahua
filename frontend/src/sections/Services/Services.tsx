@@ -1,3 +1,4 @@
+import { Link } from 'react-router';
 import Service1 from '../../assets/service_1.png';
 import Service2 from '../../assets/service_2.png';
 import Service3 from '../../assets/service_3.png';
@@ -36,31 +37,48 @@ const serviceItems = [
     desc: '整合多筆負債，簡化還款節奏，減輕每月壓力。',
     image: Service6,
   },
-]
+];
 
 function Services() {
   return (
-    <section id="service" className="py-16 md:py-24">
-      <div className="mx-auto w-full max-w-6xl px-5 md:px-6">
-        <p className="mb-3 text-xs font-bold uppercase tracking-[0.12em] text-emerald-700">專業服務項目</p>
-        <h2 className="text-3xl font-bold leading-tight text-zinc-900 md:text-4xl">24 小時全年無休，快速回覆資金問題</h2>
-        <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-          {serviceItems.map((item) => (
-            <article key={item.title} className="overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm">
-              <img src={item.image} alt={item.title} loading="lazy" className="aspect-16/10 w-full object-cover" />
-              <div className="p-4">
-                <h3 className="mb-2 text-xl font-semibold text-zinc-900">{item.title}</h3>
-                <p className="mb-3 text-zinc-600">{item.desc}</p>
-                <a href="#contact" className="inline-flex rounded-full border border-zinc-300 px-3 py-1.5 text-sm font-semibold text-zinc-700">
+    <section id='service' className='py-16 md:py-24'>
+      <div className='mx-auto w-full max-w-6xl px-5 md:px-6'>
+        <p className='mb-3 text-xs font-bold uppercase tracking-[0.12em] text-emerald-700'>
+          專業服務項目
+        </p>
+        <h2 className='text-3xl font-bold leading-tight text-zinc-900 md:text-4xl'>
+          24 小時全年無休，快速回覆資金問題
+        </h2>
+        <div className='mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3'>
+          {serviceItems.map(item => (
+            <article
+              key={item.title}
+              className='overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm'
+            >
+              <img
+                src={item.image}
+                alt={item.title}
+                loading='lazy'
+                className='aspect-16/10 w-full object-cover'
+              />
+              <div className='p-4'>
+                <h3 className='mb-2 text-xl font-semibold text-zinc-900'>
+                  {item.title}
+                </h3>
+                <p className='mb-3 text-zinc-600'>{item.desc}</p>
+                <Link
+                  className='inline-flex rounded-full border border-zinc-300 px-3 py-1.5 text-sm font-semibold text-zinc-700'
+                  to='/consult'
+                >
                   快速申辦
-                </a>
+                </Link>
               </div>
             </article>
           ))}
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default Services
+export default Services;
