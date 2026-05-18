@@ -39,7 +39,7 @@ function Header() {
     <header className="sticky top-0 z-30 border-b border-zinc-200/80 bg-zinc-50/90 backdrop-blur">
       <div className="mx-auto flex min-h-16 w-full max-w-6xl items-center justify-between gap-4 px-5 md:min-h-18.5 md:px-6">
         <Link
-          className="inline-flex flex-col gap-0.5 text-2xl font-semibold tracking-wide text-zinc-900"
+          className="inline-flex flex-col gap-0.5 text-1xl font-semibold tracking-wide text-zinc-900"
           to="/"
           onClick={(event) => {
             if (location.pathname === '/') {
