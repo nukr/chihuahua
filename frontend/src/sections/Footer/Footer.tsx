@@ -8,7 +8,7 @@ function Footer() {
     <>
       <footer className='border-t border-zinc-200 bg-zinc-50 pb-20 md:pb-0'>
         <div className='mx-auto flex min-h-18 w-full max-w-7xl items-center justify-between gap-4 px-6 text-sm text-zinc-600 lg:px-12'>
-          <p>公司名稱：鑫信國際管理顧問有限公司 | 統一編號：60399485 | 地址：台北市中山區松江路328號8樓 | 聯絡電話：02-28103665</p>
+          <p>公司名稱：鑫信國際管理顧問有限公司 | 統一編號：60399485 | 地址：台北市中山區松江路328號8樓 | 聯絡電話：<a href="tel:+886228103665">02-28103665</a></p>
           <a
             href='#top'
             className='font-medium hover:text-emerald-700 transition-colors'
