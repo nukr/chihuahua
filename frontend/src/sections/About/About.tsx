@@ -48,7 +48,7 @@ function About() {
               />
 
                    <Link
-              to='/consult'
+              to='https://line.me/ti/p/w5eqzEtmeg'
               className='absolute inset-0 flex items-end justify-center pb-8 transition-opacity hover:bg-black/20 rounded-2xl text-xl cursor-pointer'
             >
  <span className='rounded-full bg-linear-to-r from-emerald-600 to-emerald-500 px-8 py-3 font-semibold text-white shadow-lg transition hover:-translate-y-0.5'>

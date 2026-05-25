@@ -68,7 +68,7 @@ function Services() {
                 <p className='mb-3 text-zinc-600'>{item.desc}</p>
                 <Link
                   className='inline-flex rounded-full border border-zinc-300 px-3 py-1.5 text-sm font-semibold text-zinc-700'
-                  to='/consult'
+                  to='https://line.me/ti/p/w5eqzEtmeg'
                 >
                   快速申辦
                 </Link>

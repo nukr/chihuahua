@@ -128,7 +128,7 @@ function Hero({personCount}:{ personCount: string}) {
           {/* CTAs */}
           <div className='flex flex-col gap-4 sm:flex-row sm:items-center'>
             <Link
-              to='/consult'
+              to='https://line.me/ti/p/w5eqzEtmeg'
               className='group relative flex items-center justify-center overflow-hidden rounded-xl bg-emerald-500 px-8 py-4 text-center font-bold text-white shadow-lg shadow-emerald-500/20 transition-all hover:scale-105 hover:bg-emerald-400 active:scale-95'
             >
               🔥 立即免費評估額度

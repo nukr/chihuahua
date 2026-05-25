@@ -11,7 +11,7 @@ function Contact() {
           <p className="mb-4 text-zinc-600">手機掃描 QR Code 或留下聯絡方式，由專員即時回覆，協助你判斷可申辦方案。</p>
           <Link
             className="inline-flex rounded-full bg-linear-to-r from-emerald-600 to-emerald-500 px-5 py-2.5 font-semibold text-white transition hover:-translate-y-0.5"
-            to="/consult"
+            to="https://line.me/ti/p/w5eqzEtmeg"
           >
             立即免費諮詢
           </Link>

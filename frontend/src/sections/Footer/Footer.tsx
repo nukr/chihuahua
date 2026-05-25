@@ -45,7 +45,7 @@ function Footer() {
         <div className='fixed bottom-0 left-0 z-50 w-full px-4 pb-6 md:hidden'>
           <div className='mx-auto flex max-w-md items-center gap-3 overflow-hidden rounded-2xl bg-white/80 p-3 shadow-2xl backdrop-blur-xl ring-1 ring-zinc-900/5'>
             <Link
-              to='/consult'
+              to='https://line.me/ti/p/w5eqzEtmeg'
               className='flex flex-1 items-center justify-center gap-2 rounded-xl bg-emerald-600 py-3.5 text-center text-base font-bold text-white shadow-lg shadow-emerald-600/20 active:scale-95 transition-transform'
             >
               立即申請
