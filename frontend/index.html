@@ -14,6 +14,22 @@
       gtag('js', new Date());
       gtag('config', 'AW-18179216924');
     </script>
+    <script>
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion', {
+          'send_to': 'AW-18179216924/eVzjCOjl7bAcEJysw9xD',
+          'value': 1.0,
+          'currency': 'TWD',
+          'event_callback': callback
+      });
+      return false;
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>
