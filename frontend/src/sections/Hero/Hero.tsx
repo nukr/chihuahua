@@ -1,7 +1,22 @@
 import { Link } from 'react-router';
 import Banner from '../../assets/banner.png';
 
+const trackEvent = (eventName: string, params = {}) => {
+  if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+    window.gtag('event', eventName, params);
+  } else {
+    console.log(`Analytics event [${eventName}] simulated:`, params);
+  }
+};
+
 function Hero({personCount}:{ personCount: string}) {
+  const handleClick = () => {
+    trackEvent('conversion', {
+      send_to: 'AW-18179216924/eVzjCOjl7bAcEJysw9xD',
+      value: 1.0,
+      currency: 'TWD'
+    });
+  };
 
   return (
     <section className='relative flex min-h-[75vh] items-center py-20 overflow-hidden md:min-h-[85vh]'>
@@ -136,6 +151,7 @@ function Hero({personCount}:{ personCount: string}) {
             </Link>
             <a
               href='tel:+886228103665'
+              onClick={handleClick}
               className='flex items-center justify-center gap-3 rounded-xl border border-zinc-700 bg-zinc-800/50 px-8 py-4 text-center font-bold text-white backdrop-blur-sm transition-colors hover:bg-zinc-800'
             >
               <svg

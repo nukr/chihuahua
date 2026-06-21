@@ -21,10 +21,25 @@ const NOTICE_TEXT = `備註說明：
 
 const REMINDER_TEXT = '資金規劃需謹慎，請依個人財務狀況評估申貸。';
 
+export const trackEvent = (eventName: string, params = {}) => {
+  if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+    window.gtag('event', eventName, params);
+  } else {
+    console.log(`Analytics event [${eventName}] simulated:`, params);
+  }
+};
+
 function Footer() {
   const { pathname } = useLocation();
   const isConsultPage = pathname === '/consult';
   const [privacyOpen, setPrivacyOpen] = useState(false);
+  const handleClick = () => {
+    trackEvent('conversion', {
+      send_to: 'AW-18179216924/eVzjCOjl7bAcEJysw9xD',
+      value: 1.0,
+      currency: 'TWD'
+    });
+  };
 
   // 開啟時鎖定背景捲動，並支援 Esc 關閉
   useEffect(() => {
@@ -44,7 +59,7 @@ function Footer() {
         <div className='mx-auto flex min-h-18 w-full max-w-7xl flex-col items-start justify-between gap-4 px-6 py-4 text-sm text-zinc-600 md:flex-row md:items-center md:py-0 lg:px-12'>
           <p>
             公司名稱：鑫信國際管理顧問有限公司 | 統一編號：60399485 | 地址：台北市中山區松江路328號8樓
-            | 聯絡電話：<a href='tel:+886228103665'>02-28103665</a>
+            | 聯絡電話：<a href="tel:+886228103665" onClick={handleClick}>02-28103665</a>
           </p>
           <div className='flex shrink-0 items-center gap-4'>
             <button
