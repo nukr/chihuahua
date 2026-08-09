@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router';
 import { useEffect, useState } from 'react';
+import { services } from '../../pages/services/serviceData';
 
 const NOTICE_TEXT = `備註說明：
 【申辦資格】
@@ -74,6 +75,22 @@ function Footer() {
             </a>
           </div>
         </div>
+
+        <nav
+          aria-label='服務項目'
+          className='mx-auto flex w-full max-w-7xl flex-wrap items-center gap-x-5 gap-y-2 px-6 py-3 text-sm text-zinc-600 lg:px-12'
+        >
+          <span className='font-medium text-zinc-500'>服務項目：</span>
+          {services.map((service) => (
+            <Link
+              key={service.path}
+              to={`/${service.path}`}
+              className='transition-colors hover:text-emerald-700'
+            >
+              {service.navLabel}
+            </Link>
+          ))}
+        </nav>
 
         <div className='mx-auto flex min-h-18 w-full max-w-7xl items-center justify-between gap-4 whitespace-pre-line px-6 text-sm text-zinc-600 lg:px-12'>
           {NOTICE_TEXT}

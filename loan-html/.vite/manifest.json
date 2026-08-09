@@ -1,0 +1,95 @@
+{
+  "index.html": {
+    "file": "assets/app-CtbrFmlV.js",
+    "name": "app",
+    "src": "index.html",
+    "isEntry": true,
+    "dynamicImports": [
+      "node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/client.js"
+    ],
+    "css": [
+      "assets/app-BQt0bHD_.css"
+    ],
+    "assets": [
+      "assets/service_5-C4O-fxb9.png",
+      "assets/service_1-XGE_EHkN.png",
+      "assets/service_3-B4fvzOuR.png",
+      "assets/service_4-B-2xv432.png",
+      "assets/service_2-DOitbxB7.png",
+      "assets/service_6-iWT9oJJA.png",
+      "assets/banner-ChxG08b3.png",
+      "assets/about-CiY7aNAP.jpg",
+      "assets/step_1-DlmnLNg-.png",
+      "assets/step_2-C6ragqGB.png",
+      "assets/step_3-CSuvMjGG.png",
+      "assets/step_4-Cp0gE0Bb.png",
+      "assets/step_5-BwcxzHoN.png",
+      "assets/join-ShnjOLjB.png"
+    ]
+  },
+  "node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/client.js": {
+    "file": "assets/client-CP4yWEkf.js",
+    "name": "client",
+    "src": "node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/client.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "index.html"
+    ]
+  },
+  "src/assets/about.jpg": {
+    "file": "assets/about-CiY7aNAP.jpg",
+    "src": "src/assets/about.jpg"
+  },
+  "src/assets/banner.png": {
+    "file": "assets/banner-ChxG08b3.png",
+    "src": "src/assets/banner.png"
+  },
+  "src/assets/join.png": {
+    "file": "assets/join-ShnjOLjB.png",
+    "src": "src/assets/join.png"
+  },
+  "src/assets/service_1.png": {
+    "file": "assets/service_1-XGE_EHkN.png",
+    "src": "src/assets/service_1.png"
+  },
+  "src/assets/service_2.png": {
+    "file": "assets/service_2-DOitbxB7.png",
+    "src": "src/assets/service_2.png"
+  },
+  "src/assets/service_3.png": {
+    "file": "assets/service_3-B4fvzOuR.png",
+    "src": "src/assets/service_3.png"
+  },
+  "src/assets/service_4.png": {
+    "file": "assets/service_4-B-2xv432.png",
+    "src": "src/assets/service_4.png"
+  },
+  "src/assets/service_5.png": {
+    "file": "assets/service_5-C4O-fxb9.png",
+    "src": "src/assets/service_5.png"
+  },
+  "src/assets/service_6.png": {
+    "file": "assets/service_6-iWT9oJJA.png",
+    "src": "src/assets/service_6.png"
+  },
+  "src/assets/step_1.png": {
+    "file": "assets/step_1-DlmnLNg-.png",
+    "src": "src/assets/step_1.png"
+  },
+  "src/assets/step_2.png": {
+    "file": "assets/step_2-C6ragqGB.png",
+    "src": "src/assets/step_2.png"
+  },
+  "src/assets/step_3.png": {
+    "file": "assets/step_3-CSuvMjGG.png",
+    "src": "src/assets/step_3.png"
+  },
+  "src/assets/step_4.png": {
+    "file": "assets/step_4-Cp0gE0Bb.png",
+    "src": "src/assets/step_4.png"
+  },
+  "src/assets/step_5.png": {
+    "file": "assets/step_5-BwcxzHoN.png",
+    "src": "src/assets/step_5.png"
+  }
+}

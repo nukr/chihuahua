@@ -1,0 +1,30 @@
+diff --git a/dist/server.mjs b/dist/server.mjs
+new file mode 100644
+index 0000000000000000000000000000000000000000..b3e98fb4b6fb6a05da0e1bfba3e7a6bcb950d4c5
+--- /dev/null
++++ b/dist/server.mjs
+@@ -0,0 +1,9 @@
++// Compatibility shim: react-router v7 removed the `react-router-dom/server`
++// subpath and moved these server-render APIs into the `react-router` main
++// export. vite-react-ssg still imports `react-router-dom/server.js`, so we
++// re-export them here.
++export {
++  StaticRouterProvider,
++  createStaticHandler,
++  createStaticRouter,
++} from 'react-router'
+diff --git a/package.json b/package.json
+index 78a9b70235b1e12ce60dc751c1a38bb738ec8193..8145da864c6163ba35f9c1036e4c6b1ff4fdb950 100644
+--- a/package.json
++++ b/package.json
+@@ -37,6 +37,10 @@
+         "default": "./dist/index.js"
+       }
+     },
++    "./server.js": {
++      "import": "./dist/server.mjs",
++      "default": "./dist/server.mjs"
++    },
+     "./package.json": "./package.json"
+   },
+   "wireit": {

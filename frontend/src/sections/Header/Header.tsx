@@ -1,5 +1,6 @@
 import type { MouseEvent } from 'react'
 import { Link, useNavigate, useLocation } from 'react-router'
+import { services } from '../../pages/services/serviceData'
 
 function Header() {
   const navigate = useNavigate()
@@ -52,7 +53,27 @@ function Header() {
         </Link>
         <nav className="hidden items-center gap-5 text-sm text-zinc-700 md:flex" aria-label="主選單">
           <a href="#about" className="hover:text-emerald-700" onClick={(event) => handleMenuClick(event, '#about')}>關於</a>
-          <a href="#service" className="hover:text-emerald-700" onClick={(event) => handleMenuClick(event, '#service')}>服務</a>
+          <div className="relative group">
+            <button type="button" className="inline-flex items-center gap-1 hover:text-emerald-700">
+              服務項目
+              <svg className="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div className="invisible absolute left-1/2 top-full z-40 -translate-x-1/2 pt-3 opacity-0 transition group-hover:visible group-hover:opacity-100">
+              <div className="w-44 rounded-xl border border-zinc-200 bg-white p-2 shadow-lg">
+                {services.map((service) => (
+                  <Link
+                    key={service.path}
+                    to={`/${service.path}`}
+                    className="block rounded-lg px-3 py-2 text-zinc-700 hover:bg-zinc-50 hover:text-emerald-700"
+                  >
+                    {service.navLabel}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
           <a href="#step" className="hover:text-emerald-700" onClick={(event) => handleMenuClick(event, '#step')}>步驟</a>
           <a href="#cases" className="hover:text-emerald-700" onClick={(event) => handleMenuClick(event, '#cases')}>案例</a>
           <a href="#faq" className="hover:text-emerald-700" onClick={(event) => handleMenuClick(event, '#faq')}>FAQ</a>
